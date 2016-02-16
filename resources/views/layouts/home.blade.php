@@ -23,6 +23,9 @@
     <body ng-app="app" ng-controller="GreetingController">
 
         @section('body')
+            <div id="leftCompartment" style="float:left;width:26vw;height:100vh;border:1px solid gray;position:absolute;top:0">
+              <!-- left compartment -->
+            </div>
             <div class="container" style="width:100%;position:fixed;top:0px;">
               <i class="fa fa-question fa-2x pull-right" style="margin-top:7px;margin-right:-6px;"></i>
             </div>
@@ -30,9 +33,9 @@
             <div class="container" style="width:500px;margin-left:-35px;">
               <div class="container" style="width:135px;height:100px;border:12px solid black;font-family: 'Oxygen Mono', '';font-size:70px;color:black">
                 <div class="container" style="width:150px;margin-top:-7px;margin-left:-23px;">
-                <span style=""><b>0</b></span>
-                <span style="margin-left:-30px;margin-top:-5px;"><b>0</b></span>
-              </div>
+                  <span style=""><b>0</b></span>
+                  <span style="margin-left:-30px;margin-top:-5px;"><b>0</b></span>
+                </div>
               </div>
               <div class="container" style="width:165px;margin-top:-3px;color:black;font-family: 'Montserrat', sans-serif;font-size:22px">
                 <b>C<span style="font-family: 'Oxygen Mono', '';font-size:19px;margin-right:1px;margin-left:1px">0</span>DE VIS<span style="font-family: 'Oxygen Mono', '';font-size:19px;margin-right:1px;margin-left:1px">0</span>N</b>
@@ -125,7 +128,11 @@
               <span id="backButt" style="font-family: 'Montserrat', sans-serif;float:left;margin-left:15px;"><b>BACK</b></span>
               <span id="nextButt" style="font-family: 'Montserrat', sans-serif;float:right" ng-click="calculateQuantity()"><b>NEXT</b></span>
               <span id="submitButt" style="display:none;font-family: 'Montserrat', sans-serif;float:right" ng-click="submitClicked()"><b>SUBMIT</b></span>
+            <div id="rightCompartment" style="float:right;width:26vw;height:100vh;border:1px solid gray;position:absolute;top:0;right:0">
+              <!-- right compartment -->
             </div>
+            </div>
+
         @show
         <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
