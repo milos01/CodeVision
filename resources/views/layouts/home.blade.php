@@ -11,19 +11,40 @@
         <style type="text/css">
         body {
           /*background: url('/imgs/slika');*/
-          -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-          /*opacity: 0.9;*/
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            /*opacity: 0.9;*/
         }
         </style>
         @show
+        <style type="text/css">
+      .card {
+        width: 138px;
+        height: 100px;
+        margin-left:163px;
+      }
+      .front, .back {
+        
+      }
+      .front {
+        
+      }
+      .back {
+       /* background-color: #d6e9c6;
+        border-color: #d6e9c6;
+        border-radius: 1px;*/
+        background: url('/imgs/yr.png');
+      }
+    </style>
     </head>
     <body ng-app="app" ng-controller="GreetingController">
-
         @section('body')
-            <div id="leftCompartment" style="float:left;width:26vw;height:100vh;border:1px solid gray;position:absolute;top:0">
+            <div id="leftCompartment" style="-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;background: url('/imgs/slika2.png');float:left;width:33vw;height:100vh;position:absolute;top:0;box-shadow: 4px 0px 0px 0px #ccc;">
               <!-- left compartment -->
             </div>
             <div class="container" style="width:100%;position:fixed;top:0px;">
@@ -31,14 +52,21 @@
             </div>
             <div class="container" style="width:450px;margin-top:18vh">
             <div class="container" style="width:500px;margin-left:-35px;">
-              <div class="container" style="width:135px;height:100px;border:12px solid black;font-family: 'Oxygen Mono', '';font-size:70px;color:black">
-                <div class="container" style="width:150px;margin-top:-7px;margin-left:-23px;">
-                  <span style=""><b>0</b></span>
-                  <span style="margin-left:-30px;margin-top:-5px;"><b>0</b></span>
+              <div class="card"> 
+
+                <div class="front"> 
+                      <div class="container" style="width:135px;height:100px;border:12px solid black;font-family: 'Oxygen Mono', '';font-size:70px;color:black">
+                        <div class="container" style="width:150px;margin-top:-7px;margin-left:-23px;">
+                          <span style=""><b>0</b></span>
+                          <span style="margin-left:-30px;margin-top:-5px;"><b>0</b></span>
+                        </div>
+                      </div>
                 </div>
+                <div class="back">
+                </div> 
               </div>
-              <div class="container" style="width:165px;margin-top:-3px;color:black;font-family: 'Montserrat', sans-serif;font-size:22px">
-                <b>C<span style="font-family: 'Oxygen Mono', '';font-size:19px;margin-right:1px;margin-left:1px">0</span>DE VIS<span style="font-family: 'Oxygen Mono', '';font-size:19px;margin-right:1px;margin-left:1px">0</span>N</b>
+              <div class="container" style="width:165px;margin-top:-3px;color:black;font-family: 'Montserrat', sans-serif;font-size:20px">
+                <b>C<span style="font-family: 'Oxygen Mono', '';font-size:18px;margin-right:1px;margin-left:1px">0</span>DE VISI<span style="font-family: 'Oxygen Mono', '';font-size:18px;margin-right:1px;margin-left:1px">0</span>N</b>
               </div>
             </div>
             <div class="container" style="margin-left:-35px;margin-bottom:70px;margin-top:-3px;width:500px;color:#000;font-family: 'Montserrat', sans-serif;text-align:center;font-size:20px;">
@@ -57,13 +85,13 @@
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 form-control-label" style="font-family: 'Montserrat', sans-serif;margin-top:7px">EMAIL</label>
                         <div class="col-sm-10">
-                          <input  type="text" style=" background: transparent;border: none;border-radius:0px;border-bottom: 1px solid #000000;" name="username" class="form-control" id="inputEmail3" autocomplete="off" required/>
+                          <input  type="text" style=" background: transparent;border: none;border-radius:0px;border-bottom: 1px solid #000000;" name="username" class="form-control" id="email" autocomplete="off" required/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <p><label for="inputMessage" class="col-sm-2 form-control-label" style="font-family: 'Montserrat', sans-serif;margin-top:16px;margin-left:-5px;">ABOUT</label></p>
                         <div class="col-sm-10">
-                          <textarea type="text" class="form-control" id="inputPassword3" style="height:100px; background: transparent;border: none;margin-left:5px;border-radius:0px;border-bottom: 1px solid #000000;"></textarea>
+                          <textarea type="text" class="form-control" id="aboutArea" style="height:100px; background: transparent;border: none;margin-left:5px;border-radius:0px;border-bottom: 1px solid #000000;"></textarea>
                         </div>
                     </div>
                       <div class="form-group row">
@@ -119,7 +147,7 @@
                   <div class="form-group row">
                       <label for="inputEmail3" class="col-sm-2 form-control-label" style="font-family: 'Montserrat', sans-serif;margin-top:77px">OUTPUT</label>
                         <div class="col-sm-10">
-                          <input  type="text" style=" background: transparent;border: none;border-radius:0px;border-bottom: 1px solid #000000;margin-top:70px" ng-model="emailModel" name="username" class="form-control" id="inputEmail3" autocomplete="off" placeholder="e.g. message1/why?" required/>
+                          <input  type="text" style=" background: transparent;border: none;border-radius:0px;border-bottom: 1px solid #000000;margin-top:70px" name="username" class="form-control" id="submitRequest" autocomplete="off" placeholder="e.g. message1 / why?" required/>
                       </div>
                   </div>
               </div>
@@ -128,8 +156,8 @@
               <span id="backButt" style="font-family: 'Montserrat', sans-serif;float:left;margin-left:15px;"><b>BACK</b></span>
               <span id="nextButt" style="font-family: 'Montserrat', sans-serif;float:right" ng-click="calculateQuantity()"><b>NEXT</b></span>
               <span id="submitButt" style="display:none;font-family: 'Montserrat', sans-serif;float:right" ng-click="submitClicked()"><b>SUBMIT</b></span>
-            <div id="rightCompartment" style="float:right;width:26vw;height:100vh;border:1px solid gray;position:absolute;top:0;right:0">
-              <!-- right compartment -->
+            <div id="rightCompartment" style="float:right;width:33vw;height:100vh;position:absolute;top:0;right:0;overflow:hidden;box-shadow: -4px 0px 0px 0px #ccc;">
+              <img src="http://i.istockimg.com/image-zoom/73390797/3/380/380/stock-illustration-73390797-programming-flat-illustration-concept-top-view.jpg" style="position:absolute;top:0;right:0;"/>
             </div>
             </div>
 
@@ -137,6 +165,7 @@
         <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+         <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js"></script>
          <script src="js/app.js"></script>
          
     </body>
