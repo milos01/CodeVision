@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('layouts.home');
 });
 
+Route::post('/sendMail', ['uses' => 'SendMailController@SendMail', 'as' => 'SendMail']);
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -27,5 +28,5 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    
 });

@@ -2,7 +2,7 @@ var myApp = angular.module('app',[]);
 $(".card").flip({
   trigger: 'manual'
 });
-myApp.controller('GreetingController', ['$scope', function($scope) {
+myApp.controller('GreetingController', ['$scope','$http', function($scope, $http) {
 
   $scope.user = {};
   width = 420;
@@ -46,24 +46,36 @@ myApp.controller('GreetingController', ['$scope', function($scope) {
 
 	   }
   };
-
-  $scope.submitClicked = function(){
-  	var check3 = true;
-  	var answer = $("#submitRequest");
+	
+   $scope.formSubmit = function(){
+   	var answer = $("#submitRequest");
   	if (!answer.val()) {
   		answer.css("border-bottom", "1px solid red");
   		check3 = false;
   	}else{
   		answer.css("border-bottom", "1px solid #000");
-  	}
-
-  	if (check3) {
-  		$('#submitButt').html('<i class="fa fa-spinner fa-spin" style="margin-right:22px"></i>');
+  		$http({
+		method: 'POST',
+		url: '/sendMail',
+		data: $.param({
+			name: $scope.name,
+			email: $scope.email,
+			about: $scope.about,
+			motiv: $scope.radioValue,
+			output: $scope.output
+		}),
+		headers: {'Content-Type' : 'application/X-WWW-form-urlencoded'}
+	})
+	.success(function(data){
   		$('.card').flip(true);
-  	};
-  };
+	})
+	.error(function(data){
+		console.log(data);
+	});
+  	}
+   		
+   }
 }]);
-
 function isValidEmailAddress(emailAddress) {
     var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
     return pattern.test(emailAddress);

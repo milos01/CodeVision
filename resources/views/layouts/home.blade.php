@@ -11,10 +11,7 @@
         <style type="text/css">
         body {
           /*background: url('/imgs/slika');*/
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
+            
             /*opacity: 0.9;*/
         }
         </style>
@@ -41,10 +38,10 @@
     </head>
     <body ng-app="app" ng-controller="GreetingController">
         @section('body')
-            <div id="leftCompartment" style="-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;background: url('/imgs/slika2.png');float:left;width:33vw;height:100vh;position:absolute;top:0;box-shadow: 4px 0px 0px 0px #ccc;">
+            <div id="leftCompartment" style="background-repeat: no-repeat;background: url('/imgs/slika2.png');float:left;width:33vw;height:100vh;position:absolute;top:0;box-shadow: 4px 0px 0px 0px #ccc;-webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover">
               <!-- left compartment -->
             </div>
             <div class="container" style="width:100%;position:fixed;top:0px;">
@@ -72,26 +69,27 @@
             <div class="container" style="margin-left:-35px;margin-bottom:70px;margin-top:-3px;width:500px;color:#000;font-family: 'Montserrat', sans-serif;text-align:center;font-size:20px;">
                <div style="border-top:5px solid black;float:left;margin-left:130px">start-up recruitment</div>
             </div>
+             <form ng-submit="formSubmit()" novalidate>  
             <div class="container" id="holder" style="position:relative;overflow:hidden;margin:0 auto;width:420px;white-space:nowrap;">
               <div class="container" id="slide1" style="margin-left:-15px;position:relative;display:inline-block;white-space:normal;vertical-align:top;*display:inline;background:#eee;width:420px;">
   
-                <form name="myForm">  
+               
                   <div class="form-group row">
                         <label for="inputName" class="col-sm-2 form-control-label" style="font-family: 'Montserrat', sans-serif;margin-top:7px">NAME</label>
                         <div class="col-sm-10">
-                          <input  type="text" style=" background: transparent;border: none;border-radius:0px;border-bottom: 1px solid #000000;" name="username" class="form-control" id="fullName" autocomplete="off" required/>
+                          <input  type="text" style=" background: transparent;border: none;border-radius:0px;border-bottom: 1px solid #000000;" name="name" class="form-control" id="fullName" ng-model="name" autocomplete="off" required/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 form-control-label" style="font-family: 'Montserrat', sans-serif;margin-top:7px">EMAIL</label>
                         <div class="col-sm-10">
-                          <input  type="text" style=" background: transparent;border: none;border-radius:0px;border-bottom: 1px solid #000000;" name="username" class="form-control" id="email" autocomplete="off" required/>
+                          <input  type="text" style=" background: transparent;border: none;border-radius:0px;border-bottom: 1px solid #000000;" name="email" class="form-control" id="email" ng-model="email" autocomplete="off" required/>
                         </div>
                     </div>
                     <div class="form-group row">
                         <p><label for="inputMessage" class="col-sm-2 form-control-label" style="font-family: 'Montserrat', sans-serif;margin-top:16px;margin-left:-5px;">ABOUT</label></p>
                         <div class="col-sm-10">
-                          <textarea type="text" class="form-control" id="aboutArea" style="height:100px; background: transparent;border: none;margin-left:5px;border-radius:0px;border-bottom: 1px solid #000000;"></textarea>
+                          <textarea type="text" class="form-control" id="aboutArea" ng-model="about" style="height:100px; background: transparent;border: none;margin-left:5px;border-radius:0px;border-bottom: 1px solid #000000;"></textarea>
                         </div>
                     </div>
                       <div class="form-group row">
@@ -99,25 +97,25 @@
                         <div class="col-sm-10" style="font-family: 'Montserrat', sans-serif;"> 
                           <div class="radio">
                             <label>
-                              <input type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                              <input type="radio" ng-model="radioValue" ng-value="'I want to work from home'" name="gridRadios" id="gridRadios1" value="option1" ng-checked="true">
                               I want to work from home
                             </label>
                           </div>
                           <div class="radio">
                             <label>
-                              <input type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                              <input type="radio" ng-model="radioValue" ng-value="'I want to work in team'" name="gridRadios" id="gridRadios2" value="option2">
                               I want to work in team
                             </label>
                           </div>
                           <div class="radio">
                             <label>
-                              <input type="radio" name="gridRadios" id="gridRadios3" value="option3" >
+                              <input type="radio" ng-model="radioValue" name="gridRadios" ng-value="'I want to learn new things'" id="gridRadios3" value="option3" >
                               I want to learn new things
                             </label>
                           </div>
                           <div class="radio">
                             <label>
-                              <input type="radio" name="gridRadios" id="gridRadios3" value="option3" >
+                              <input type="radio" ng-model="radioValue" name="gridRadios" ng-value="'I want to be one of cofouders'" id="gridRadios3" value="option3" >
                               I want to be one of cofouders
                             </label>
                           </div>
@@ -128,7 +126,7 @@
                   <div class="col-sm-offset-2 col-sm-10">
                   </div>
                 </div>
-              </form>
+              
               </div>
               <div id="slide1" style="position:relative;display:inline-block;margin-left:-3px;white-space:normal;vertical-align:top;*display:inline;background:#eee;width:420px">
                 <div style="width:100%;height:200px;font-size:20px;">
@@ -147,15 +145,17 @@
                   <div class="form-group row">
                       <label for="inputEmail3" class="col-sm-2 form-control-label" style="font-family: 'Montserrat', sans-serif;margin-top:77px">OUTPUT</label>
                         <div class="col-sm-10">
-                          <input  type="text" style=" background: transparent;border: none;border-radius:0px;border-bottom: 1px solid #000000;margin-top:70px" name="username" class="form-control" id="submitRequest" autocomplete="off" placeholder="e.g. message1 / why?" required/>
+                          <input ng-model="output" tabindex="-1" type="text" style=" background: transparent;border: none;border-radius:0px;border-bottom: 1px solid #000000;margin-top:70px" name="username" class="form-control" id="submitRequest" autocomplete="off" placeholder="e.g. message1 / why?" required/>
                       </div>
                   </div>
               </div>
-
+              
               </div>
               <span id="backButt" style="font-family: 'Montserrat', sans-serif;float:left;margin-left:15px;"><b>BACK</b></span>
               <span id="nextButt" style="font-family: 'Montserrat', sans-serif;float:right" ng-click="calculateQuantity()"><b>NEXT</b></span>
-              <span id="submitButt" style="display:none;font-family: 'Montserrat', sans-serif;float:right" ng-click="submitClicked()"><b>SUBMIT</b></span>
+              <button type = "submit" id="submitButt" style="display:none;font-family: 'Montserrat', sans-serif;float:right" ><b>SUBMIT</b></button>
+              
+              </form>
             <div id="rightCompartment" style="float:right;width:33vw;height:100vh;position:absolute;top:0;right:0;overflow:hidden;box-shadow: -4px 0px 0px 0px #ccc;">
               <img src="http://i.istockimg.com/image-zoom/73390797/3/380/380/stock-illustration-73390797-programming-flat-illustration-concept-top-view.jpg" style="position:absolute;top:0;right:0;"/>
             </div>
