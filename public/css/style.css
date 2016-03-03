@@ -1,0 +1,15 @@
+#questionMark:hover{
+	cursor:pointer;
+}
+
+#backButt:hover{
+	cursor:pointer;
+}
+
+#nextButt{
+	cursor: pointer;
+}
+
+#submitButt{
+	cursor: pointer;
+}

@@ -63,11 +63,18 @@ myApp.controller('GreetingController', ['$scope','$http', function($scope, $http
 			about: $scope.about,
 			motiv: $scope.radioValue,
 			output: $scope.output
+			
 		}),
 		headers: {'Content-Type' : 'application/X-WWW-form-urlencoded'}
 	})
 	.success(function(data){
-  		$('.card').flip(true);
+		if (data == 'exists') {
+			$('.card').css('background', 'url("/imgs/x.png")');
+			$('.card').flip(true);
+		}else{
+			$('.card').css('background', 'url("/imgs/yr.png")');
+  			$('.card').flip(true);
+  		}
 	})
 	.error(function(data){
 		console.log(data);

@@ -8,6 +8,7 @@
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
             <link href='https://fonts.googleapis.com/css?family=Oxygen+Mono' rel='stylesheet' type='text/css'>
             <link href='https://fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" type="text/css" href="css/style.css">
         <style type="text/css">
         body {
           /*background: url('/imgs/slika');*/
@@ -32,25 +33,33 @@
        /* background-color: #d6e9c6;
         border-color: #d6e9c6;
         border-radius: 1px;*/
-        background: url('/imgs/yr.png');
       }
     </style>
     </head>
     <body ng-app="app" ng-controller="GreetingController">
         @section('body')
+            <div id="myModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content"  style="border-radius: 0px;box-shadow:none;border-bottom:none;border-left:none;border-right:none;border-top:8px solid #ccc;padding:40px 100px;font-family: arial;color:#4A4A4A;line-height: 27px">
+                  Welcome to CodeVision online virtual complany. If you don't know what it is I'll explain to you so letsd start from begining. My name is Milos(21) and I'm web develpoer. <br/><br/>CodeVision was my idea of modern company where you can sing up for any position as programmer or designer just like in any other company but there is big difference. Here you can work form home 100% with same work hours. If you are still confused don't wory...CodeVison is website company, so whole company is at one website. My idea is to maske special habitate for developers  where you as employee can login and after that starts your work day and each employee has its own virtual office, organize vitual meetings, task asignment, managing work flow an all that on one place.   
+                </div>
+
+              </div>
+            </div>
+
             <div id="leftCompartment" style="background-repeat: no-repeat;background: url('/imgs/slika2.png');float:left;width:33vw;height:100vh;position:absolute;top:0;box-shadow: 4px 0px 0px 0px #ccc;-webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover">
               <!-- left compartment -->
             </div>
-            <div class="container" style="width:100%;position:fixed;top:0px;">
-              <i class="fa fa-question fa-2x pull-right" style="margin-top:7px;margin-right:-6px;"></i>
+            <div id="centralCompartment" style="left:33vw;right:33vw;width:33.9vw;position:absolute;top:0;-webkit background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover">
+              <i id="questionMark" class="fa fa-question fa-2x pull-right" style="margin-top:7px;color:#ccc;margin-right:7px;" data-toggle="modal" data-target="#myModal"></i>
             </div>
             <div class="container" style="width:450px;margin-top:18vh">
             <div class="container" style="width:500px;margin-left:-35px;">
+            
               <div class="card"> 
-
                 <div class="front"> 
                       <div class="container" style="width:135px;height:100px;border:12px solid black;font-family: 'Oxygen Mono', '';font-size:70px;color:black">
                         <div class="container" style="width:150px;margin-top:-7px;margin-left:-23px;">
@@ -62,8 +71,8 @@
                 <div class="back">
                 </div> 
               </div>
-              <div class="container" style="width:165px;margin-top:-3px;color:black;font-family: 'Montserrat', sans-serif;font-size:20px">
-                <b>C<span style="font-family: 'Oxygen Mono', '';font-size:18px;margin-right:1px;margin-left:1px">0</span>DE VISI<span style="font-family: 'Oxygen Mono', '';font-size:18px;margin-right:1px;margin-left:1px">0</span>N</b>
+              <div class="container" style="width:165px;margin-top:-3px;color:black;font-family: 'Montserrat', sans-serif;font-size:19px">
+                <b>CODE VISION</b>
               </div>
             </div>
             <div class="container" style="margin-left:-35px;margin-bottom:70px;margin-top:-3px;width:500px;color:#000;font-family: 'Montserrat', sans-serif;text-align:center;font-size:20px;">
@@ -71,7 +80,7 @@
             </div>
              <form ng-submit="formSubmit()" novalidate>  
             <div class="container" id="holder" style="position:relative;overflow:hidden;margin:0 auto;width:420px;white-space:nowrap;">
-              <div class="container" id="slide1" style="margin-left:-15px;position:relative;display:inline-block;white-space:normal;vertical-align:top;*display:inline;background:#eee;width:420px;">
+              <div class="container" id="slide1" style="margin-left:-15px;position:relative;display:inline-block;white-space:normal;vertical-align:top;*display:inline;width:420px;">
   
                
                   <div class="form-group row">
@@ -145,7 +154,7 @@
                   <div class="form-group row">
                       <label for="inputEmail3" class="col-sm-2 form-control-label" style="font-family: 'Montserrat', sans-serif;margin-top:77px">OUTPUT</label>
                         <div class="col-sm-10">
-                          <input ng-model="output" tabindex="-1" type="text" style=" background: transparent;border: none;border-radius:0px;border-bottom: 1px solid #000000;margin-top:70px" name="username" class="form-control" id="submitRequest" autocomplete="off" placeholder="e.g. message1 / why?" required/>
+                          <input ng-model="output" tabindex="-1" type="text" style="background: transparent;border: none;border-radius:0px;border-bottom: 1px solid #000000;margin-top:70px" name="username" class="form-control" id="submitRequest" autocomplete="off" placeholder="e.g. message1 / why?" required/>
                       </div>
                   </div>
               </div>
@@ -153,7 +162,7 @@
               </div>
               <span id="backButt" style="font-family: 'Montserrat', sans-serif;float:left;margin-left:15px;"><b>BACK</b></span>
               <span id="nextButt" style="font-family: 'Montserrat', sans-serif;float:right" ng-click="calculateQuantity()"><b>NEXT</b></span>
-              <button type = "submit" id="submitButt" style="display:none;font-family: 'Montserrat', sans-serif;float:right" ><b>SUBMIT</b></button>
+              <button type = "submit" id="submitButt" id="submitButt" style="display:none;font-family: 'Montserrat', sans-serif;float:right" ><b>SUBMIT</b></button>
               
               </form>
             <div id="rightCompartment" style="float:right;width:33vw;height:100vh;position:absolute;top:0;right:0;overflow:hidden;box-shadow: -4px 0px 0px 0px #ccc;">
